@@ -1,0 +1,72 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #FFF;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+h1, h2, h3, h4, h5, h6, .text-heading {
+  font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#994d00;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  padding: 30px 0px 30px 0px;
+}
+
+.input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+  width: -webkit-fill-available;
+}
+
+.teste{
+  padding-top: 45px;
+  padding-bottom: 45px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #33cc33; 
+}
+
+.foot{
+  color: inherit;
+  background-color: #33cc33; 
+}
