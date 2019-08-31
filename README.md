@@ -5,7 +5,7 @@
         The key parameter contains the API key.
         Type your api key inside “key = “.
     Step 2: Go to browser
-        Go to the link : https:
+        Go to the link : https://grandpyjs.herokuapp.com/
     Step 3: Type your question in English.
 ```
 ### Getting an API key:
