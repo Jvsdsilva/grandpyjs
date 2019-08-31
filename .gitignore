@@ -105,3 +105,7 @@ git rm --cached projectname/config.py
 config.py
 __pycache__
 .ipynb_checkpoints
+app.db
+fbapp/tests/*.db
+geckodriver.log
+.cache/
