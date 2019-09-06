@@ -20,7 +20,7 @@ Following are the steps required to get a API key:
 
 ### Installing
 
-List of programs in requirements.txt
+List of programs in requirements.txt.
 
 ## Authors
 
