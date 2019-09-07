@@ -32,6 +32,7 @@ def get_prediction():
     filtered_sentence = word.split()
 
     reponse = []
+
     if filtered_sentence > " ":
         for each in filtered_sentence:
             if each not in stop_words:
@@ -75,7 +76,8 @@ def get_prediction():
 
         # sent answer to Media wiki
         summary = wikipedia.summary(history)
-
+    else:
+        return
     # return summary to view html
     return jsonify({'html': summary})
 
