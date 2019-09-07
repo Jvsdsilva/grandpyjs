@@ -20,7 +20,7 @@ def index():
     return render_template('base.html')
 
 
-@app.route('get_word')
+@app.route('/get_word', methods=['GET', 'POST', 'PUT'])
 def get_prediction():
     wikipedia = MediaWiki()
     word = request.args.get('word')
@@ -40,7 +40,7 @@ def get_prediction():
 
     string_query = ' '.join(reponse)
 
-    serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
+    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
     address = string_query
 
@@ -81,7 +81,7 @@ def get_prediction():
     return jsonify({'html': summary})
 
 
-@app.route('get_coord')
+@app.route('/get_coord', methods=['GET', 'POST', 'PUT'])
 def get_coordinates():
     latlng = []
     reponse = []
