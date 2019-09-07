@@ -89,6 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env
 
 # Spyder project settings
 .spyderproject
@@ -101,6 +102,7 @@ venv.bak/
 /site
 # mypy
 .mypy_cache/
+.pytest_cache
 git rm --cached projectname/config.py
 config.py
 __pycache__
