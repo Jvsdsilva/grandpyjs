@@ -32,49 +32,49 @@ def get_prediction():
     filtered_sentence = word.split()
 
     reponse = []
+    if filtered_sentence > " ":
+        for each in filtered_sentence:
+            if each not in stop_words:
+                reponse.append(each)
 
-    for each in filtered_sentence:
-        if each not in stop_words:
-            reponse.append(each)
+        string_query = ' '.join(reponse)
 
-    string_query = ' '.join(reponse)
+        serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
-    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+        address = string_query
 
-    address = string_query
+        if len(address) < 1:
+            return
 
-    if len(address) < 1:
-        return
+        try:
+            url = serviceurl + "key=" + os.environ['KEY_API'] +\
+                "&" + urllib.parse.urlencode({'address': address})
 
-    try:
-        url = serviceurl + "key=" + os.environ['KEY_API'] +\
-              "&" + urllib.parse.urlencode({'address': address})
+            uh = urllib.request.urlopen(url)
+            data = uh.read().decode()
+            js = json.loads(data)
+        except:
+            print('==== Failure URL ====')
+            js = None
 
-        uh = urllib.request.urlopen(url)
-        data = uh.read().decode()
-        js = json.loads(data)
-    except:
-        print('==== Failure URL ====')
-        js = None
+        if not js:
+            if 'status' not in js:
+                if js['status'] != 'OK':
+                    print('==== Failure To Retrieve ====')
+                    print(js)
 
-    if not js:
-        if 'status' not in js:
-            if js['status'] != 'OK':
-                print('==== Failure To Retrieve ====')
-                print(js)
+        else:
+            lat = js["results"][0]["geometry"]["location"]["lat"]
+            lng = js["results"][0]["geometry"]["location"]["lng"]
 
-    else:
-        lat = js["results"][0]["geometry"]["location"]["lat"]
-        lng = js["results"][0]["geometry"]["location"]["lng"]
+        # sent coordinates to Media wiki
+        query = wikipedia.geosearch(str(lat), str(lng))
 
-    # sent coordinates to Media wiki
-    query = wikipedia.geosearch(str(lat), str(lng))
+        # Save first answer
+        history = query[0]
 
-    # Save first answer
-    history = query[0]
-
-    # sent answer to Media wiki
-    summary = wikipedia.summary(history)
+        # sent answer to Media wiki
+        summary = wikipedia.summary(history)
 
     # return summary to view html
     return jsonify({'html': summary})
