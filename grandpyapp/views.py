@@ -6,14 +6,13 @@ from stop_words import get_stop_words, safe_get_stop_words
 import requests
 import urllib.request, urllib.parse, urllib.error
 import json
-
+import os
 app = Flask(__name__)
 # Config options - Make sure you created a 'config.py' file.
 app.config.from_object('config')
 # To get one variable, tape app.config['MY_VARIABLE']
 # Initialize the extension
 GoogleMaps(app)
-
 
 @app.route('/')
 def index():
@@ -48,7 +47,7 @@ def get_prediction():
         return
 
     try:
-        url = serviceurl + "key=" + app.config['KEY_API'] +\
+        url = serviceurl + "key=" + os.environ['KEY_API'] +\
               "&" + urllib.parse.urlencode({'address': address})
 
         uh = urllib.request.urlopen(url)
@@ -105,7 +104,7 @@ def get_coordinates():
     address = string_query
 
     try:
-        url = serviceurl + "key=" + app.config['KEY_API'] +\
+        url = serviceurl + "key=" + os.environ['KEY_API'] +\
               "&" + urllib.parse.urlencode({'address': address})
 
         uh = urllib.request.urlopen(url)
