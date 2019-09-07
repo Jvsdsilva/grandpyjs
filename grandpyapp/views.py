@@ -20,7 +20,7 @@ def index():
     return render_template('base.html')
 
 
-@app.route('/get_word')
+@app.route('get_word')
 def get_prediction():
     wikipedia = MediaWiki()
     word = request.args.get('word')
@@ -81,7 +81,7 @@ def get_prediction():
     return jsonify({'html': summary})
 
 
-@app.route('/get_coord')
+@app.route('get_coord')
 def get_coordinates():
     latlng = []
     reponse = []
