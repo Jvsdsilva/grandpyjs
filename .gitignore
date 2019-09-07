@@ -106,6 +106,6 @@ config.py
 __pycache__
 .ipynb_checkpoints
 app.db
-fbapp/tests/*.db
+grandpyapp/tests/*.db
 geckodriver.log
 .cache/
