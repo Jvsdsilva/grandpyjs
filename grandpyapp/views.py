@@ -40,7 +40,7 @@ def get_prediction():
 
     string_query = ' '.join(reponse)
 
-    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+    serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 
     address = string_query
 
@@ -100,7 +100,7 @@ def get_coordinates():
 
     string_query = ' '.join(reponse)
 
-    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+    serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 
     address = string_query
 
