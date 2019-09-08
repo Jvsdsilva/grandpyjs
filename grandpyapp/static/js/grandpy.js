@@ -35,7 +35,9 @@ window.addEventListener("load", function () {
     }
 
     function afficher(reponse) {
+      console.log(reponse)
       var obj = JSON.parse(reponse);
+      console.log(obj)
       var latitude = obj.results[0].geometry.location.lat
       var longitude = obj.results[0].geometry.location.lng
 
