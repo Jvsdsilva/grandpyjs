@@ -9,7 +9,10 @@ from stop_words import get_stop_words, safe_get_stop_words
 import requests
 import urllib.request, urllib.parse, urllib.error
 import json
+import os
+
 app = Flask(__name__)
+
 
 def test_coordinates():
     latlng = []
@@ -22,7 +25,7 @@ def test_coordinates():
     # split query
     filtered_sentence = ""
     filtered_sentence = word.split()
-    print (filtered_sentence)
+    print(filtered_sentence)
     reponse = []
 
     for each in filtered_sentence:
@@ -30,24 +33,25 @@ def test_coordinates():
             reponse.append(each)
 
     string_query = ' '.join(reponse)
-
+    print(string_query)
     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
     address = string_query
-    print (address)
+    print(address)
+
     if len(address) < 1:
         return
-    print (script.app.config['KEY_API'])
-    
+
     try:
-        url = serviceurl + "key=" + script.app.config['KEY_API'] +\
-              "&" + script.urllib.parse.urlencode({'address': address})
-        print (url)
-        uh = script.urllib.request.urlopen(url)
-        print (uh)
+        url = serviceurl + "key=API_KEY&" +\
+            urllib.parse.urlencode({'address': address})
+        print(url)
+        uh = urllib.request.urlopen(url)
+        print(uh)
         data = uh.read().decode()
-        print (data)
-        js = script.json.loads(data)
+        print(data)
+        js = json.loads(data)
+        print(js)
     except:
         print('==== Failure URL ====')
         js = None
@@ -61,7 +65,7 @@ def test_coordinates():
     else:
         lat = js["results"][0]["geometry"]["location"]["lat"]
         lng = js["results"][0]["geometry"]["location"]["lng"]
-    
+
     print(lat)
     print(lng)
 
@@ -72,16 +76,16 @@ def test_coordinates():
     location = script.json.dumps(latlng)
     print(location)
 
+
 def test_message():
     wikipedia = script.MediaWiki()
     print(wikipedia)
     # sent coordinates to Media wiki
     query = wikipedia.geosearch("48.856614", "2.3522219")
-    print (query)
+    print(query)
     # Save first answer
     history = query[0]
-    print (history)
+    print(history)
     # sent answer to Media wiki
     summary = wikipedia.summary(history)
-    print (summary)
-
+    print(summary)
