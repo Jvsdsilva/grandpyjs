@@ -37,10 +37,12 @@ window.addEventListener("load", function () {
     function afficher(reponse) {
       console.log(reponse)
       var obj = JSON.parse(reponse);
-      if(obj == 0){
+
+      if (obj.status==="ZERO_RESULTS") {
+        // array empty or does not exist
         window.alert("Any results!! Try again.");
       }
-      console.log(obj)
+    
       var latitude = obj.results[0].geometry.location.lat
       var longitude = obj.results[0].geometry.location.lng
 
