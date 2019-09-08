@@ -14,7 +14,7 @@
         <img src="https://cdn.pixabay.com/photo/2016/12/13/21/20/alien-1905155_960_720.png" alt="GrandPy" height="42" width="42">
       </div>
       <div class="container">
-        <form action = "/get_word" method = "GET">
+        <form action = "/get_word" method = "POST">
           <div class="input-group">
             <input type="text" id="query" class="form-control" placeholder="Your question please">
             <div class="input-group-btn">
@@ -24,76 +24,10 @@
             </div>
           </div>
         </form>
-        <div class="jumbotron message" id="message"></div>   
-       <script>
-         // display message
-         $(document).ready(function() {
-            $('#search').click(function(){
-                var word = $('#query').val();
-                $.ajax({
-                url: "/get_word",
-                type: "get",
-                data: {word: word},
-                success: function(response) {
-                  $("#message").html(response.html);
-                },
-                error: function(xhr) {
-                  console.log("erreur summary"+xhr)
-                }
-              });
-            });
-         });
-       </script>
-       <form action = "/get_coord" method = "get"></form>
+        <div class="jumbotron message" id="message"></div>
+       <form action = "/get_coord" method = "GET"></form>
         <div class="jumbotron map" href="" id="url" >
           <div id="googleMap" style="width:100%;height:400px;"></div>
-          <script>
-            $(document).ready(function() {
-              $('#search').click(function(){
-                  var word = $('#query').val();
-                  $.ajax({
-                    url: "/get_coord",
-                    type: "get",
-                    data: {word: word},
-                    success: function(response) {
-                      // Loop through the results array and place a marker for each
-                      // set of coordinates.
-                      for (var x in response){
-                        var building = response[x]
-                      }
-                      // data treatements
-                      var split = building.split(",")
-                      var lat = split[0]
-                      var lng = split[1]
-                      var latitude = lat.replace("[", '');
-                      var longitude = lng.replace("]", '');
-                      
-                      // Display map and marker
-                      function initMap() {
-                        var mapDiv = document.getElementById('googleMap');
-                        var map = new google.maps.Map(mapDiv, {
-                          zoom: 10,
-                          center: new google.maps.LatLng(latitude, longitude)
-                        });
-                        var coord= {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-                        var marker = new google.maps.Marker({
-                          position: coord,
-                          map:map
-                        });
-                      }
-                      var coord= {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-                      var marker = new google.maps.Marker({
-                          position: coord,
-                          map:initMap()
-                      });
-                    },
-                    error: function(xhr) {
-                    console.log("erreur coordinates"+ xhr)
-                  },
-                });
-              });
-            });
-          </script>
           <script async defer
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&callback=initMap"></script>
       </div>
