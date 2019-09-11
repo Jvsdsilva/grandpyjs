@@ -1,45 +1,91 @@
 import grandpyapp.views as script
 # content of test_show_warnings.py
-import pytest
+import warnings
+from flask import Flask, render_template, url_for, request, jsonify
+from flask_googlemaps import GoogleMaps
+from flask_googlemaps import Map
 from mediawiki import MediaWiki
+from stop_words import get_stop_words, safe_get_stop_words
 import requests
+import urllib.request, urllib.parse, urllib.error
 import json
+import os
 
-# custom class to be the mock return value
-# will override the requests.Response returned from requests.get
-class MockResponse:
+app = Flask(__name__)
 
-    # mock json() method always returns a specific testing dictionary
-    @staticmethod
-    def json():
-        return {"mock_key": "mock_response"}
 
-def get_history():
-    wikipedia = script.MediaWiki()
+def test_coordinates():
+    latlng = []
+    reponse = []
+    word = "Do you know Paris"
+    # Set stop words language
+    stop_words = script.get_stop_words('en')
+    stop_words = script.get_stop_words('english')
 
-    # sent coordinates to Media wiki
-    query = wikipedia.geosearch("48.856614", "2.3522219")
- 
-    # Save first answer
-    history = query[0]
+    # split query
+    filtered_sentence = ""
+    filtered_sentence = word.split()
+    print(filtered_sentence)
+    reponse = []
 
-    # sent answer to Media wiki
-    summary = wikipedia.summary(history)
-    return(summary)
+    for each in filtered_sentence:
+        if each not in stop_words:
+            reponse.append(each)
 
-def test_get_json(monkeypatch):
+    string_query = ' '.join(reponse)
+    print(string_query)
+    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
 
-    # Any arguments may be passed and mock_get() will always return our
-    # mocked object, which only has the .json() method.
-    def mock_get(*args, **kwargs):
-        return MockResponse()
+    address = string_query
+    print(address)
 
-    # apply the monkeypatch for requests.get to mock_get
-    monkeypatch.setattr(requests, "get", mock_get)
+    if len(address) < 1:
+        return
 
-    # app.get_json, which contains requests.get, uses the monkeypatch
-    result = script.get_json("https://fakeurl")
-    assert result["mock_key"] == "mock_response"
+    try:
+        url = serviceurl + "key=API_KEY&" +\
+            urllib.parse.urlencode({'address': address})
+        print(url)
+        uh = urllib.request.urlopen(url)
+        print(uh)
+        data = uh.read().decode()
+        print(data)
+        js = json.loads(data)
+        print(js)
+    except:
+        print('==== Failure URL ====')
+        js = None
+
+    if not js:
+        if 'status' not in js:
+            if js['status'] != 'OK':
+                print('==== Failure To Retrieve ====')
+                print(js)
+
+    else:
+        lat = js["results"][0]["geometry"]["location"]["lat"]
+        lng = js["results"][0]["geometry"]["location"]["lng"]
+
+    print(lat)
+    print(lng)
+
+    latlng.append(lat)
+    latlng.append(lng)
+    print(latlng)
+
+    location = script.json.dumps(latlng)
+    print(location)
+
 
 def test_message():
-    assert get_history()
+    wikipedia = script.MediaWiki()
+    print(wikipedia)
+    # sent coordinates to Media wiki
+    query = wikipedia.geosearch("48.856614", "2.3522219")
+    print(query)
+    # Save first answer
+    history = query[0]
+    print(history)
+    # sent answer to Media wiki
+    summary = wikipedia.summary(history)
+    print(summary)
