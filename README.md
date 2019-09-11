@@ -1,7 +1,9 @@
 # GrandPy
+This project aims to create a web page that will allow you to query the "Grand Py" on the places of your choice and have an answer of the location of your research and the associated history.
+
 ### How to start:
 ```
-    Step 1: You need an API key
+    Step 1: You need an API key google maps
         The key parameter contains the API key.
         Type your api key inside “key = “.
     Step 2: Go to browser
@@ -9,7 +11,7 @@
     Step 3: Type your question in English.
 ```
 ### Getting an API key:
-Following are the steps required to get a API key:
+Following are the steps required to get a google maps API key:
 
     1. Go to the below mentioned link
     2. https://console.developers.google.com/flows/enableapi?apiid=maps_backend,geocoding_backend,directions_backend,distance_matrix_backend,elevation_backend,places_backend&reusekey=true.
@@ -20,7 +22,7 @@ Following are the steps required to get a API key:
 
 ### Installing
 
-List of programs in requirements.txt
+List of programs in requirements.txt.
 
 ## Authors
 
