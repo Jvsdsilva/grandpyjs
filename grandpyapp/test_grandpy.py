@@ -5,6 +5,7 @@ from mediawiki import MediaWiki
 import requests
 import json
 
+
 # custom class to be the mock return value
 # will override the requests.Response returned from requests.get
 class MockResponse:
@@ -14,18 +15,20 @@ class MockResponse:
     def json():
         return {"mock_key": "mock_response"}
 
+
 def get_history():
     wikipedia = script.MediaWiki()
 
     # sent coordinates to Media wiki
     query = wikipedia.geosearch("48.856614", "2.3522219")
- 
+
     # Save first answer
     history = query[0]
 
     # sent answer to Media wiki
     summary = wikipedia.summary(history)
     return(summary)
+
 
 def test_get_json(monkeypatch):
 
@@ -40,6 +43,7 @@ def test_get_json(monkeypatch):
     # app.get_json, which contains requests.get, uses the monkeypatch
     result = script.get_json("https://fakeurl")
     assert result["mock_key"] == "mock_response"
+
 
 def test_message():
     assert get_history()

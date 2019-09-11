@@ -26,11 +26,13 @@ def add_headers(response):
                          'Content-Type,Authorization')
     return response
 
+
 def get_json(url):
     """Takes a URL, and returns the JSON."""
     data = requests.get(url)
 
     return data.json()
+
 
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_history():
@@ -40,7 +42,7 @@ def get_history():
         data = request.get_json()
         latitude = data['latitude']
         longitude = data['longitude']
-        address =  data['address']
+        address = data['address']
     # sent coordinates to Media wiki
     query = wikipedia.geosearch(str(latitude), str(longitude))
 
@@ -50,7 +52,8 @@ def get_history():
     # sent answer to Media wiki
     summary = wikipedia.summary(history)
 
-    answer = "Of course! There she is : " + address + ". But have I already told you his story: " + summary
+    answer = "Of course! There she is : " + address +\
+             ". But have I already told you his story: " + summary
     # return summary to view html
     return jsonify({'html': answer})
 
