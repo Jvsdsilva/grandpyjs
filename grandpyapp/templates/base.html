@@ -1,3 +1,5 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -8,6 +10,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>
+    
     <body>
       <div class="jumbotron text-center teste">
         <h1> Welcome to GrandPy!! </h1>
@@ -15,7 +18,7 @@
       </div>
       <div class="container">
           <div class="row justify-content-md-center">
-              <div class="col-md-6">
+              <div class="col-xs-6">
                 <form action = "/get_word" method = "POST">
                   <div class="input-group">
                     <input type="text" id="query" class="form-control" placeholder="Your question please">
@@ -46,5 +49,7 @@
         </div>
     </footer>
     </body>
+    
     <script src="../static/js/grandpy.js"></script>
 </html>
+{% endblock %}

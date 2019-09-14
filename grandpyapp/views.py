@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request, jsonify
+from flask_bootstrap import Bootstrap
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 from mediawiki import MediaWiki
@@ -9,6 +10,7 @@ import os
 
 
 app = Flask(__name__)
+Bootstrap(app)
 
 # Initialize the extension
 GoogleMaps(app)

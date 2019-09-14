@@ -114,3 +114,6 @@ app.db
 grandpyapp/tests/*.db
 geckodriver.log
 .cache/
+
+#bootstrap
+bootstrap
