@@ -69,7 +69,7 @@ window.addEventListener("load", function () {
           map:initMap()
         });
       }
-      ajaxGet("https://maps.googleapis.com/maps/api/geocode/json?key=API_KEY&address="+query, display);
+      ajaxGet("https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&address="+query, display);
     }); 
   });
 });

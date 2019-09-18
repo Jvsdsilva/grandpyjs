@@ -1,9 +1,11 @@
-import grandpyapp.views as script
+import grandpyapp.model.parse as script
+import grandpyapp.views as view
 # content of test_show_warnings.py
 import pytest
 from mediawiki import MediaWiki
 import requests
 import json
+import urllib.request
 
 
 # custom class to be the mock return value
@@ -13,24 +15,39 @@ class MockResponse:
     # mock json() method always returns a specific testing dictionary
     @staticmethod
     def json():
-        return {"mock_key": "mock_response"}
+        return {
+            "latitude": "48.8737917",
+            "longitude": "2.2950275",
+            "address": "Place Charles de Gaulle, 75008 Paris, France"
+            }
 
 
 def get_history():
-    wikipedia = script.MediaWiki()
+    latlng = []
+    lat = "48.856614"
+    lng = "2.3522219"
+    address = "Rue de Rivoli, 75001 Paris, France"
 
-    # sent coordinates to Media wiki
-    query = wikipedia.geosearch("48.856614", "2.3522219")
+    # add to list
+    latlng.append(lat)
+    latlng.append(lng)
+    latlng.append(address)
+    # convert list into json format
+    location = json.dumps(latlng)
 
-    # Save first answer
-    history = query[0]
+    summary = script.message(location)
 
-    # sent answer to Media wiki
-    summary = wikipedia.summary(history)
     return(summary)
 
 
 def test_get_json(monkeypatch):
+
+    results = {
+        "latitude": 48.8737917,
+        "longitude": 2.2950275,
+        "address": "Place Charles de Gaulle, 75008 Paris, France"
+        }
+    location = json.dumps(results)
 
     # Any arguments may be passed and mock_get() will always return our
     # mocked object, which only has the .json() method.
@@ -40,9 +57,8 @@ def test_get_json(monkeypatch):
     # apply the monkeypatch for requests.get to mock_get
     monkeypatch.setattr(requests, "get", mock_get)
 
-    # app.get_json, which contains requests.get, uses the monkeypatch
-    result = script.get_json("https://fakeurl")
-    assert result["mock_key"] == "mock_response"
+    result = script.get_coordinates(location)
+    assert result[1] == result[1]
 
 
 def test_message():

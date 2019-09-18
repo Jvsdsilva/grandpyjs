@@ -35,13 +35,13 @@ def get_json():
 
     return data
 
-
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_history():
     # Get coordinates
     data = get_json()
     app_json = json.dumps(data)
     parser = parse.get_coordinates(app_json)
+    print(parser)
     history = parse.message(parser)
 
     # return summary to view html
