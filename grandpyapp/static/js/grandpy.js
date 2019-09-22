@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
       }
       $.ajax({
       url: "/get_word",
-      type: "GET",
+      type: "POST",
       data: {word: word},
       success: function(response) {
         $("#message").html(response.html);
