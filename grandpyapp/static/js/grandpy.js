@@ -25,14 +25,14 @@ window.addEventListener("load", function () {
       }
       $.ajax({
       url: "/get_word",
-      type: "post",
+      type: "GET",
       data: {word: word},
       success: function(response) {
         $("#message").html(response.html);
         // display coordinates
         $.ajax({
           url: "/get_coord",
-          type: "get",
+          type: "POST",
           data: {word: word},
           success: function(response) {
             // Loop through the results array and place a marker for each
