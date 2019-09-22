@@ -1,16 +1,13 @@
 from flask import Flask, render_template, url_for, request, jsonify
-from flask_bootstrap import Bootstrap
 from flask_googlemaps import GoogleMaps
+from flask_bootstrap import Bootstrap
 from flask_googlemaps import Map
 from .model import parse
 import requests
 import json
 
-# sys.path.append('..')
-
 app = Flask(__name__)
 Bootstrap(app)
-
 # Initialize the extension
 GoogleMaps(app)
 
@@ -28,24 +25,23 @@ def add_headers(response):
     return response
 
 
-def get_json():
-    # Get the JSON.
-    if request.method == "POST":
-        data = request.get_json()
-
-    return data
-
-
-@app.route('/get_word', methods=['GET', 'POST'])
-def get_history():
-    # Get coordinates
-    data = get_json()
-    app_json = json.dumps(data)
-    parser = parse.get_coordinates(app_json)
+@app.route('/get_word')
+def get_prediction():
+    word = request.args.get('word')
+    parser = parse.get_coordinates(word)
     history = parse.message(parser)
 
-    # return summary to view html
+    # return history to view html
     return jsonify({'html': history})
+
+
+@app.route('/get_coord')
+def get_coordinates():
+    word = request.args.get('word')
+    coordinates = parse.get_coordinates(word)
+
+    # Return new coordinates to reload map view html
+    return jsonify({'html': coordinates})
 
 
 if __name__ == "__main__":
