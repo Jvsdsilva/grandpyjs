@@ -19,7 +19,7 @@ def get_coordinates(word):
         return
 
     try:
-        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w"\
+        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w" +\
               "&" + urllib.parse.urlencode({'address': address})
 
         uh = urllib.request.urlopen(url)
