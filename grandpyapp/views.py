@@ -25,7 +25,7 @@ def add_headers(response):
     return response
 
 
-@app.route('/get_word')
+@app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
     parser = parse.get_coordinates(word)
@@ -35,7 +35,7 @@ def get_prediction():
     return jsonify({'html': history})
 
 
-@app.route('/get_coord')
+@app.route('/get_coord', methods=['GET', 'POST'])
 def get_coordinates():
     word = request.args.get('word')
     coordinates = parse.get_coordinates(word)
