@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-{% block content %}
+{% block title %}Welcome to GrandPy!{% endblock %}
 <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -8,9 +8,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="static/css/main.css">
+      {% block styles %}
+      {{super()}}
+      <link rel="stylesheet"
+            href="{{url_for('.static', filename='main.css')}}">
+      {% endblock %}
+      <!--<link rel="stylesheet" type="text/css" href="static/css/main.css">-->
     </head>
     <body>
+      {% block content %}
       <div class="jumbotron text-center teste">
         <h1> Welcome to GrandPy!! </h1>
         <img src="https://cdn.pixabay.com/photo/2016/12/13/21/20/alien-1905155_960_720.png" alt="GrandPy" height="42" width="42">
