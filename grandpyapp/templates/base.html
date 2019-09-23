@@ -1,7 +1,8 @@
 {% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="en"{% endblock %}
 {% block title %}Welcome to GrandPy!{% endblock %}
 <!DOCTYPE html>
-  <html lang="en">
+  <!--<html lang="en">-->
     <head>
       <title>Welcome to GrandPy!</title>
       <meta charset="utf-8">
@@ -55,6 +56,11 @@
     </footer>
     </body>
     {% endblock %}
-    <script src="../static/js/grandpy.js"></script>
-    <script src="../static/js/ajax.js"></script>
+    {% block scripts %}
+      <script src="{{url_for('.static', filename='js/grandpy.js')}}"></script>
+      <script src="{{url_for('.static', filename='js/ajax.js')}}"></script>
+    {{super()}}
+    {% endblock %}
+    <!--<script src="../static/js/grandpy.js"></script>
+    <script src="../static/js/ajax.js"></script>-->
 </html>
