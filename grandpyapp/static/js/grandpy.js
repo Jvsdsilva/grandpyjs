@@ -9,13 +9,10 @@ window.addEventListener("load", function () {
       // Displays all data entered or selected
       form.addEventListener("submit", function (e) {
           var query = form.elements.query.value;
-        e.preventDefault(); // Cancel sending data
-      }); 
-    });
-  });     
+        
   // display message
-  $(document).ready(function() {
-  $('#search').click(function(e){
+  /*$(document).ready(function() {
+  $('#search').click(function(e){*/
       var word = $('#query').val();
       word = word.replace(/\s/g,'');
       if (word == "") {
@@ -75,7 +72,10 @@ window.addEventListener("load", function () {
       error: function(err) {
         console.log("erreur summary"+err)
       }
-     });
-    });
+    /* });
+    });*/
   });
-
+  e.preventDefault(); // Cancel sending data
+}); 
+});
+});    
