@@ -46,8 +46,8 @@ def get_coordinates(word):
         # convert list into json format
         location = json.dumps(latlng)
 
-    # return location
-    return(location)
+        # return location
+        return(location)
 
 
 def message(coordinates):
