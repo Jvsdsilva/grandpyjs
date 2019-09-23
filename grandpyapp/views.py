@@ -10,7 +10,10 @@ app = Flask(__name__)
 Bootstrap(app)
 # Initialize the extension
 GoogleMaps(app)
+# Config options - Make sure you created a 'config.py' file.
+app.config.from_object('config')
 apikey = app.config['KEY_API']
+
 
 @app.route('/')
 def index():
