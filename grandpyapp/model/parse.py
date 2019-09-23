@@ -19,9 +19,9 @@ def get_coordinates(word):
         return
 
     try:
-        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w" +\
-              "&" + urllib.parse.urlencode({'address': address})
-
+        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&"\
+              + urllib.parse.urlencode({'address': address})
+        print(url)
         uh = urllib.request.urlopen(url)
         data = uh.read().decode()
         js = json.loads(data)
