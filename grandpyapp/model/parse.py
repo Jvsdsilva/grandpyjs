@@ -35,7 +35,7 @@ def get_coordinates(word):
                 print('==== Failure To Retrieve ====')
                 print(js)
 
-    else:
+    if js['status'] == 'OK':
         lat = js["results"][0]["geometry"]["location"]["lat"]
         lng = js["results"][0]["geometry"]["location"]["lng"]
         address = js["results"][0]["formatted_address"]
