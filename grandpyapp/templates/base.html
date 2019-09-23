@@ -11,7 +11,7 @@
       {% block styles %}
       {{super()}}
       <link rel="stylesheet"
-            href="{{url_for('.static', filename='main.css')}}">
+            href="{{url_for('.static', filename='css/main.css')}}">
       {% endblock %}
       <!--<link rel="stylesheet" type="text/css" href="static/css/main.css">-->
     </head>
@@ -54,7 +54,7 @@
         </div>
     </footer>
     </body>
+    {% endblock %}
     <script src="../static/js/grandpy.js"></script>
     <script src="../static/js/ajax.js"></script>
 </html>
-{% endblock %}
