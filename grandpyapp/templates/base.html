@@ -24,7 +24,7 @@
       <div class="container">
           <div class="row justify-content-md-center">
               <div class="col-xs-6">
-                <form action = "/get_word" method = "POST">
+                <form action = "/get_word" method = "GET">
                   <div class="input-group">
                     <input type="text" id="query" class="form-control" placeholder="Your question please">
                     <div class="input-group-btn">
@@ -35,7 +35,7 @@
                   </div>
                 </form>
                 <div class="jumbotron message" id="message"></div>
-                <form action = "/get_coord" method = "POST"></form>
+                <form action = "/get_coord" method = "GET"></form>
                   <div class="jumbotron map" href="" id="url" >
                     <div id="googleMap" style="width:100%;height:200px;"></div>
                     <script async defer
