@@ -39,13 +39,12 @@ def get_coordinates(word):
         lat = js["results"][0]["geometry"]["location"]["lat"]
         lng = js["results"][0]["geometry"]["location"]["lng"]
         address = js["results"][0]["formatted_address"]
-
-    # add to list
-    latlng.append(lat)
-    latlng.append(lng)
-    latlng.append(address)
-    # convert list into json format
-    location = json.dumps(latlng)
+        # add to list
+        latlng.append(lat)
+        latlng.append(lng)
+        latlng.append(address)
+        # convert list into json format
+        location = json.dumps(latlng)
 
     # return location
     return(location)
