@@ -11,13 +11,11 @@ import os
 
 def get_coordinates(word):
     latlng = []
-
     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
     address = word
 
     if len(address) < 1:
         return
-
     try:
         url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&"\
               + urllib.parse.urlencode({'address': address})
@@ -45,7 +43,6 @@ def get_coordinates(word):
         latlng.append(address)
         # convert list into json format
         location = json.dumps(latlng)
-
         # return location
         return(location)
 
