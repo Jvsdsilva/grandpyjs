@@ -9,7 +9,7 @@ import json
 import os
 
 
-def get_coordinates(word):
+def get_coordinates(word, apikey):
     latlng = []
 
     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
@@ -19,7 +19,7 @@ def get_coordinates(word):
         return
 
     try:
-        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&"\
+        url = serviceurl + "key=" + apikey + "&"\
               + urllib.parse.urlencode({'address': address})
         print(url)
         uh = urllib.request.urlopen(url)

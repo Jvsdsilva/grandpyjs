@@ -10,7 +10,7 @@ app = Flask(__name__)
 Bootstrap(app)
 # Initialize the extension
 GoogleMaps(app)
-
+apikey = app.config['KEY_API']
 
 @app.route('/')
 def index():
@@ -28,7 +28,7 @@ def add_headers(response):
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
-    parser = parse.get_coordinates(word)
+    parser = parse.get_coordinates(word, apikey)
     history = parse.message(parser)
 
     # return history to view html
@@ -38,7 +38,7 @@ def get_prediction():
 @app.route('/get_coord', methods=['GET', 'POST'])
 def get_coordinates():
     word = request.args.get('word')
-    coordinates = parse.get_coordinates(word)
+    coordinates = parse.get_coordinates(word, apikey)
 
     # Return new coordinates to reload map view html
     return jsonify({'html': coordinates})
