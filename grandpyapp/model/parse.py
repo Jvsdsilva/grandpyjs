@@ -11,13 +11,14 @@ import os
 
 def get_coordinates(word):
     latlng = []
+    key = os.environ.get('KEY')
     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
     address = word
 
     if len(address) < 1:
         return
     try:
-        url = serviceurl + "key=AIzaSyDzBLThB4X_uOKoEh9TkgEj9IwN8ZtYk2w&"\
+        url = serviceurl + "key=" + key + "&"\
               + urllib.parse.urlencode({'address': address})
         print(url)
         uh = urllib.request.urlopen(url)
