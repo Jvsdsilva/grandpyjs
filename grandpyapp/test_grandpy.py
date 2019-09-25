@@ -34,7 +34,7 @@ def get_history():
     latlng.append(address)
     # convert list into json format
     location = json.dumps(latlng)
-
+    # get summary
     summary = script.message(location)
 
     return(summary)
@@ -47,6 +47,7 @@ def test_get_json(monkeypatch):
         "longitude": 2.2950275,
         "address": "Place Charles de Gaulle, 75008 Paris, France"
         }
+    # convert data into json
     location = json.dumps(results)
 
     # Any arguments may be passed and mock_get() will always return our
@@ -56,7 +57,7 @@ def test_get_json(monkeypatch):
 
     # apply the monkeypatch for requests.get to mock_get
     monkeypatch.setattr(requests, "get", mock_get)
-
+    # get coordinates
     result = script.get_coordinates(location)
     assert result[1] == result[1]
 

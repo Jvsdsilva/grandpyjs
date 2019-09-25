@@ -18,11 +18,13 @@ def get_coordinates(word):
     if len(address) < 1:
         return
     try:
+        # Url construction
         url = serviceurl + "key=" + key + "&"\
               + urllib.parse.urlencode({'address': address})
-        print(url)
         uh = urllib.request.urlopen(url)
+        # decode answer
         data = uh.read().decode()
+        # load json
         js = json.loads(data)
     except:
         print('==== Failure URL ====')
@@ -33,7 +35,7 @@ def get_coordinates(word):
             if js['status'] != 'OK':
                 print('==== Failure To Retrieve ====')
                 print(js)
-
+    # get all the informations from json
     if js['status'] == 'OK':
         lat = js["results"][0]["geometry"]["location"]["lat"]
         lng = js["results"][0]["geometry"]["location"]["lng"]

@@ -6,6 +6,7 @@ from .model import parse
 import requests
 import json
 
+
 app = Flask(__name__)
 Bootstrap(app)
 # Initialize the extension
@@ -28,7 +29,9 @@ def add_headers(response):
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
+    # get coordinates
     parser = parse.get_coordinates(word)
+    # get history
     history = parse.message(parser)
 
     # return history to view html
@@ -38,6 +41,7 @@ def get_prediction():
 @app.route('/get_coord', methods=['GET', 'POST'])
 def get_coordinates():
     word = request.args.get('word')
+    # get coordinates
     coordinates = parse.get_coordinates(word)
 
     # Return new coordinates to reload map view html

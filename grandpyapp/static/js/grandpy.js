@@ -60,12 +60,12 @@ window.addEventListener("load", function () {
               });
             },
             error: function(xhr) {
-              console.log("erreur coordinates"+ xhr)
+              console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
         },
         error: function(err) {
-          console.log("erreur summary"+err)
+          console.log("erreur summary"+err) // error summary
         }
       });
     e.preventDefault(); // Cancel sending data

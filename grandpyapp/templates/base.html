@@ -2,7 +2,6 @@
 {% block html_attribs %} lang="en"{% endblock %}
 {% block title %}Welcome to GrandPy!{% endblock %}
 <!DOCTYPE html>
-  <!--<html lang="en">-->
     <head>
       <title>Welcome to GrandPy!</title>
       <meta charset="utf-8">
@@ -14,7 +13,6 @@
       <link rel="stylesheet"
             href="{{url_for('.static', filename='css/main.css')}}">
       {% endblock %}
-      <!--<link rel="stylesheet" type="text/css" href="static/css/main.css">-->
     </head>
     <body>
       {% block content %}
@@ -63,6 +61,4 @@
       <script src="{{url_for('.static', filename='js/ajax.js')}}"></script>
     {{super()}}
     {% endblock %}
-    <!--<script src="../static/js/grandpy.js"></script>
-    <script src="../static/js/ajax.js"></script>-->
 </html>
