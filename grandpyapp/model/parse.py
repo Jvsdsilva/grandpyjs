@@ -29,7 +29,7 @@ def get_coordinates(word):
     except:
         message = "Any results!! Try again, please."
         print('==== Failure URL ====')
-        js = None
+        # js = None
         return(message)
 
     if not js:

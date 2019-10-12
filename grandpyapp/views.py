@@ -35,12 +35,9 @@ def get_prediction():
     # get history
     history = parse.message(parser)
     
-    if parser != "": 
-        # return history to view html
-        return jsonify({'html': history})
-    else:
-        message = "Any results!! Try again, please."
-        return jsonify({'html': message})
+    # return history to view html
+    return jsonify({'html': history})
+   
 
 
 @app.route('/get_coord', methods=['GET', 'POST'])
@@ -50,7 +47,7 @@ def get_coordinates():
     coordinates = parse.get_coordinates(word)
     
     # Return new coordinates to reload map view html
-    return jsonify({'html': word})
+    return jsonify({'html': coordinates})
  
     
 
