@@ -61,16 +61,13 @@ window.addEventListener("load", function () {
             },
             error: function(xhr) {
               console.log("erreur coordinates"+ xhr) // error coordinate
-              message = "Any results!! Try again, please."
-              response = message
-              $("#message").html(message.html);
+              $("#message").html(xhr.html);
             },
           }); 
         },
         error: function(err) {
           console.log("erreur sommaire"+err) // error summary
-          message = "Any results!! Try again, please."
-          $("#message").html(message.html);
+          $("#message").html(err.html);
         }
       });
     e.preventDefault(); // Cancel sending data
