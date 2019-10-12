@@ -49,11 +49,9 @@ def get_coordinates():
     # get coordinates
     coordinates = parse.get_coordinates(word)
     
-    if coordinates != "":
-        # Return new coordinates to reload map view html
-        return jsonify({'html': coordinates})
-    else:
-        return jsonify({'html': word})
+    # Return new coordinates to reload map view html
+    return jsonify({'html': coordinates})
+ 
     
 
 
