@@ -31,6 +31,10 @@ def get_coordinates(word):
         print('==== Failure URL ====')
         # js = None
         return(location)
+        
+    if js['status'] == 500:
+        location = "Any results!! Try again, please."
+        return(location)
 
     if not js:
         if 'status' not in js:
@@ -51,9 +55,7 @@ def get_coordinates(word):
         # return location
         return(location)
     
-    if js['status'] == 500:
-        location = "Any results!! Try again, please."
-        return(location)
+    
     
 
 def message(coordinates):
