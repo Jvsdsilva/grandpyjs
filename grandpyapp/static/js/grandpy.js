@@ -60,14 +60,10 @@ window.addEventListener("load", function () {
                   map:initMap()
               });
             },
-            error: function(xhr) {
-              console.log("erreur coordinates"+ xhr) // error coordinate
-            },
+           
           }); 
         },
-        error: function(err) {
-          console.log("erreur sommaire"+err) // error summary
-        }
+        
       });
     }
     catch(e){
