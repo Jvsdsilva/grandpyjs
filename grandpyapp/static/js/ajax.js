@@ -8,8 +8,6 @@ function ajaxGet(url, callback) {
             callback(req.responseText);
         }
         else {
-            responseText = "Any results!! Try again, please."
-            callback(req.responseText);
             console.error(req.status + " " + req.statusText + " " + url);
         }
     });
