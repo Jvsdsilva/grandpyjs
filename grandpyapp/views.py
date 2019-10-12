@@ -50,7 +50,7 @@ def get_coordinates():
     coordinates = parse.get_coordinates(word)
     
     # Return new coordinates to reload map view html
-    return jsonify({'html': coordinates})
+    return jsonify({'html': word})
  
     
 
