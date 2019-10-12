@@ -60,7 +60,7 @@ window.addEventListener("load", function () {
               });
             },
             error: function(xhr) {
-              $("#message").html(xhr.html);
+              $("#message").html("Any results!! Try again, please.");
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
