@@ -69,12 +69,9 @@ window.addEventListener("load", function () {
           if (err) {
             console.log("if"+err)
             window.alert("Any results!! Try again.");
-            err=""
+            alert = function(){};
           }
-          else{
-            console.log("else"+err)
-            err="";
-          }
+
           console.log(err) // error summary
         }
       });
