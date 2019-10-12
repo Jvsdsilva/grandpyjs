@@ -69,11 +69,10 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-          if (err === "[object Object]"){
-            // array empty or does not exist
-            window.alert("Any results!! Try again."); 
-          }
-          console.log("erreur summary"+err) // error summary
+          // array empty or does not exist
+          window.alert("Any results!! Try again.");
+
+          console.log(err) // error summary
         }
       });
     e.preventDefault(); // Cancel sending data
