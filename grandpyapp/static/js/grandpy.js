@@ -82,6 +82,7 @@ window.addEventListener("load", function () {
       if (xhr | err){
         window.alert("Any results!! Try again.");
         alert = function(){};
+        console.log(err + xhr) 
       }
     e.preventDefault(); // Cancel sending data
     }); 
