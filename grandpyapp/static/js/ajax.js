@@ -8,7 +8,8 @@ function ajaxGet(url, callback) {
             callback(req.responseText);
         }
         else {
-            callback("Any results!! Try again, please.");
+            responseText = "Any results!! Try again, please."
+            callback(req.responseText);
             console.error(req.status + " " + req.statusText + " " + url);
         }
     });
@@ -16,5 +17,5 @@ function ajaxGet(url, callback) {
         console.error("Erreur réseau avec l'URL " + url);
     });
     req.send(null);
-    
+    console.error("Erreur");
 }
