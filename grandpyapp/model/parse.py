@@ -27,9 +27,10 @@ def get_coordinates(word):
         data = uh.read().decode()
         # load json
         js = json.loads(data)
+        
+    except:
         if js == None:
             message = message()
-    except:
         print('==== Failure URL ====')
         js = None
 
