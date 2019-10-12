@@ -29,6 +29,8 @@ def add_headers(response):
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
+    if word =="":
+        message = message()
     # get coordinates
     parser = parse.get_coordinates(word)
     # get history
