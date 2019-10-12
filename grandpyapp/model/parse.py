@@ -7,6 +7,8 @@ from mediawiki import MediaWiki
 import requests
 import json
 import os
+import logging
+
 
 def get_coordinates(word):
     latlng = []
@@ -15,8 +17,7 @@ def get_coordinates(word):
     address = word
 
     if len(address) < 1:
-        message = "Any results!! Try again, please."
-        return(message)
+        return()
     try:
         # Url construction
         url = serviceurl + "key=" + key + "&"\
@@ -29,6 +30,7 @@ def get_coordinates(word):
         
     except:
         message = "Any results!! Try again, please."
+        logging.error('This is an error message')
         print('==== Failure URL ====')
         js = None
         return(message)
