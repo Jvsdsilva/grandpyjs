@@ -7,6 +7,8 @@ from mediawiki import MediaWiki
 import requests
 import json
 import os
+from tkinter import *
+from tkinter import messagebox
 
 def get_coordinates(word):
     latlng = []
@@ -26,6 +28,7 @@ def get_coordinates(word):
         # load json
         js = json.loads(data)
     except:
+        message = message()
         print('==== Failure URL ====')
         js = None
 
@@ -72,3 +75,17 @@ def message(coordinates):
     answer = "Of course! There she is : " + address +\
              ". But have I already told you his history: " + summary
     return (answer)
+
+
+def message_erreur():
+    window = Tk()
+    window.eval('tk::PlaceWindow %s center' % window.winfo_toplevel())
+    window.withdraw()
+
+    message = messagebox.showerror('Reponse','Any results!! Try again, please.')
+
+    window.deiconify()
+    window.destroy()
+    window.quit()
+
+    return(message)
