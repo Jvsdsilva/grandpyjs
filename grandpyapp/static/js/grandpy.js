@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     
     // Adding a manager for the click event
     boutonElt.addEventListener("click", function () {
-      alert = function(){};
+      /*alert = function(){};*/
       var form = document.querySelector("form");
       // Displays all data entered or selected
       form.addEventListener("submit", function (e) {
@@ -63,8 +63,7 @@ window.addEventListener("load", function () {
             error: function(xhr) {
               if (xhr) {
                 console.log("if"+xhr)
-                window.alert("Any results!! Try again.");
-              }
+                /*window.alert("Any results!! Try again.");*/
               /*alert = function(){};*/
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
@@ -74,7 +73,7 @@ window.addEventListener("load", function () {
           // array empty or does not exist
           if (err) {
             console.log("if"+err)
-            window.alert("Any results!! Try again.");
+            /*window.alert("Any results!! Try again.");*/
           }
           /*alert = function(){};*/
           console.log(err) // error summary
