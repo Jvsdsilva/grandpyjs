@@ -78,7 +78,7 @@ def message(coordinates):
     return (answer)
 
 
-def message_erreur():
+"""def message_erreur():
     window = Tk()
     window.eval('tk::PlaceWindow %s center' % window.winfo_toplevel())
     window.withdraw()
@@ -89,4 +89,4 @@ def message_erreur():
     window.destroy()
     window.quit()
 
-    return(message)
+    return(message)"""
