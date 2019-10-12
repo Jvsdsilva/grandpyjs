@@ -8,7 +8,6 @@ import requests
 import json
 import os
 
-
 def get_coordinates(word):
     latlng = []
     key = os.environ.get('KEY')

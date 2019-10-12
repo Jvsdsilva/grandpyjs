@@ -61,20 +61,20 @@ window.addEventListener("load", function () {
             },
             error: function(xhr) {
               console.log(xhr)
-              if (xhr.status === "ZERO_RESULTS"){
+              /*if (xhr.status === "ZERO_RESULTS"){
                 // array empty or does not exist
                 window.alert("Any results!! Try again."); 
-              }
+              }*/
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
         },
         error: function(err) {
           console.log(err)
-          if (err.status === "ZERO_RESULTS"){
+         /* if (err.status === "ZERO_RESULTS"){
             // array empty or does not exist
             window.alert("Any results!! Try again."); 
-          }
+          }*/
           console.log("erreur summary"+err) // error summary
         }
       });
