@@ -79,6 +79,7 @@ window.addEventListener("load", function () {
           console.log(err) // error summary
         }
       });
+      alert = function(){};
     e.preventDefault(); // Cancel sending data
     }); 
   });
