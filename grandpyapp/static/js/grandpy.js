@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     
     // Adding a manager for the click event
     boutonElt.addEventListener("click", function () {
-
+      alert = function(){};
       var form = document.querySelector("form");
       // Displays all data entered or selected
       form.addEventListener("submit", function (e) {
@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
             type: "GET",
             data: {word: word},
             success: function(response) {
-              alert = function(){};
+              
               // Loop through the results array and place a marker for each
               // set of coordinates.
               for (var x in response){
