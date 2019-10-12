@@ -53,8 +53,7 @@ def get_coordinates():
         # Return new coordinates to reload map view html
         return jsonify({'html': coordinates})
     else:
-        message = "Any results!! Try again, please."
-        return jsonify({'html': message})
+        return jsonify({'html': word})
     
 
 
