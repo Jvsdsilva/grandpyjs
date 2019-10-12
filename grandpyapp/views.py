@@ -35,11 +35,12 @@ def get_prediction():
     # get history
     history = parse.message(parser)
     
-    if word == object:
-        return jsonify({'html':"Any results"})
-    else:    
+    if  history != "": 
         # return history to view html
         return jsonify({'html': history})
+    else:
+        message = "Any results!! Try again, please."
+        return jsonify({'html': message})
 
 
 @app.route('/get_coord', methods=['GET', 'POST'])
