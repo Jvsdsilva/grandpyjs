@@ -48,9 +48,14 @@ def get_coordinates():
     word = request.args.get('word')
     # get coordinates
     coordinates = parse.get_coordinates(word)
-
-    # Return new coordinates to reload map view html
-    return jsonify({'html': coordinates})
+    
+    if coordinates != "": 
+        # Return new coordinates to reload map view html
+        return jsonify({'html': coordinates})
+    else:
+        message = "Any results!! Try again, please."
+        return jsonify({'html': message})
+    
 
 
 if __name__ == "__main__":
