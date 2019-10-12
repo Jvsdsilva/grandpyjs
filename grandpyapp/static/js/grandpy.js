@@ -69,10 +69,10 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-         /* if (err.status === "ZERO_RESULTS"){
+          if (err.status === "object Object"){
             // array empty or does not exist
             window.alert("Any results!! Try again."); 
-          }*/
+          }
           console.log("erreur summary"+err) // error summary
         }
       });
