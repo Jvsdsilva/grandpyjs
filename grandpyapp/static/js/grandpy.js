@@ -60,10 +60,6 @@ window.addEventListener("load", function () {
               });
             },
             error: function(xhr) {
-              /*if (xhr.status === "ZERO_RESULTS"){
-                // array empty or does not exist
-                window.alert("Any results!! Try again."); 
-              }*/
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
@@ -73,6 +69,7 @@ window.addEventListener("load", function () {
           if (err) {
             console.log("if"+err)
             window.alert("Any results!! Try again.");
+            err=""
           }
           else{
             console.log("else"+err)
