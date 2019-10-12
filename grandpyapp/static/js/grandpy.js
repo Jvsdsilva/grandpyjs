@@ -80,6 +80,14 @@ window.addEventListener("load", function () {
           console.log(err) // error summary
         }
       });
+      try {
+        if(success) 
+        throw "empty";
+      }
+      catch(err) {
+        window.alert("Any results!! Try again.");
+      }
+
     e.preventDefault(); // Cancel sending data
     }); 
   });
