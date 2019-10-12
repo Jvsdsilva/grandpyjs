@@ -29,12 +29,14 @@ def add_headers(response):
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
+    print(word)
     # get coordinates
     parser = parse.get_coordinates(word)
     # get history
     history = parse.message(parser)
-    if word == "Any results!! Try again, please.":
-        return jsonify({'html':word})
+    
+    if word == object:
+        return jsonify({'html':"Any results"})
     else:    
         # return history to view html
         return jsonify({'html': history})
