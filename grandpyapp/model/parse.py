@@ -51,6 +51,10 @@ def get_coordinates(word):
         # return location
         return(location)
     
+    if js['status'] == 500:
+        location = "Any results!! Try again, please."
+        return(location)
+    
 
 def message(coordinates):
     data = json.loads(coordinates)
