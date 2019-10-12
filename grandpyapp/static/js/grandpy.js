@@ -66,8 +66,9 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-          $("#message").html("Any results!! Try again, please.");
           document.getElementById('googleMap').innerHTML = "";
+          $("#message").html("Any results!! Try again, please.");
+          
 
           console.log("erreur sommaire"+err) // error summary
         }
