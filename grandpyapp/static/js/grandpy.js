@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
           e.preventDefault(); // Cancel sending data
           return false;
         }
-        try{
+        /*try{*/
         $.ajax({
         url: "/get_word",
         type: "GET",
@@ -60,16 +60,20 @@ window.addEventListener("load", function () {
                   map:initMap()
               });
             },
-           
+            /*error: function(xhr) {
+              console.log("erreur coordinates"+ xhr) // error coordinate
+            },*/
           }); 
         },
-        
+        /*error: function(err) {
+          console.log("erreur sommaire"+err) // error summary
+        }*/
       });
-    }
-    catch(e){
+   /* }*/
+    /*catch(e){
       console.log("erreur sommaire"+e) // error summary
       alert("Any results!! Try again, please.");
-    }
+    }*/
     e.preventDefault(); // Cancel sending data
     }); 
   });
