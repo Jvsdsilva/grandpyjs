@@ -15,7 +15,8 @@ def get_coordinates(word):
     address = word
 
     if len(address) < 1:
-        return
+        message = "Any results!! Try again, please."
+        return(message)
     try:
         # Url construction
         url = serviceurl + "key=" + key + "&"\
