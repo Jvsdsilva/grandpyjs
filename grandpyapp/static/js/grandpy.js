@@ -21,11 +21,6 @@ window.addEventListener("load", function () {
         type: "GET",
         data: {word: word},
         success: function(response) {
-          console.log(response)
-          if (response.status === "ZERO_RESULTS"){
-            // array empty or does not exist
-            window.alert("Any results!! Try again."); 
-          }
           $("#message").html(response.html);
           // display coordinates
           $.ajax({
@@ -33,7 +28,6 @@ window.addEventListener("load", function () {
             type: "GET",
             data: {word: word},
             success: function(response) {
-             
               // Loop through the results array and place a marker for each
               // set of coordinates.
               for (var x in response){
@@ -71,6 +65,11 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
+          console.log(err)
+          if (err.status === "ZERO_RESULTS"){
+            // array empty or does not exist
+            window.alert("Any results!! Try again."); 
+          }
           console.log("erreur summary"+err) // error summary
         }
       });
