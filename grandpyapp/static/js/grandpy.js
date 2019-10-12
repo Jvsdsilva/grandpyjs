@@ -72,7 +72,7 @@ window.addEventListener("load", function () {
           // array empty or does not exist
           if (err) {
             console.log("if"+err)
-            return(window.alert("Any results!! Try again."));
+            window.alert("Any results!! Try again.");
           }
           else{
             console.log("else"+err)
