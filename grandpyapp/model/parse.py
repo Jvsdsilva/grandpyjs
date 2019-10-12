@@ -31,8 +31,8 @@ def get_coordinates(word):
     except:
         if js == None:
             message = message()
-        print('==== Failure URL ====')
-        js = None
+            print('==== Failure URL ====')
+            js = None
 
     if not js:
         if 'status' not in js:
