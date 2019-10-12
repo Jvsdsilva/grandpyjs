@@ -7,7 +7,7 @@ function ajaxGet(url, callback) {
         if (req.status >= 200 && req.status < 400) {
             callback(req.responseText);
         }
-        else if(req.status == 500){
+        else if(req.status > 400){
             alert("Any results!! Try again, please.");
             callback("");
         }
