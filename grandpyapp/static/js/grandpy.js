@@ -63,8 +63,8 @@ window.addEventListener("load", function () {
               if (xhr) {
                 console.log("if"+xhr)
                 window.alert("Any results!! Try again.");
-                alert = function(){};
               }
+              alert = function(){};
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
@@ -74,9 +74,8 @@ window.addEventListener("load", function () {
           if (err) {
             console.log("if"+err)
             window.alert("Any results!! Try again.");
-            alert = function(){};
           }
-
+          alert = function(){};
           console.log(err) // error summary
         }
       });
