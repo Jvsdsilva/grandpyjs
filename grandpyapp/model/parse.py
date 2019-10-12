@@ -27,7 +27,7 @@ def get_coordinates(word):
         data = uh.read().decode()
         # load json
         js = json.loads(data)
-        
+         logging.error('This is an error message')
     except:
         message = "Any results!! Try again, please."
         logging.error('This is an error message')
