@@ -28,6 +28,7 @@ window.addEventListener("load", function () {
             type: "GET",
             data: {word: word},
             success: function(response) {
+              alert = function(){};
               // Loop through the results array and place a marker for each
               // set of coordinates.
               for (var x in response){
@@ -64,7 +65,7 @@ window.addEventListener("load", function () {
                 console.log("if"+xhr)
                 window.alert("Any results!! Try again.");
               }
-              alert = function(){};
+              /*alert = function(){};*/
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
@@ -75,7 +76,7 @@ window.addEventListener("load", function () {
             console.log("if"+err)
             window.alert("Any results!! Try again.");
           }
-          alert = function(){};
+          /*alert = function(){};*/
           console.log(err) // error summary
         }
       });
