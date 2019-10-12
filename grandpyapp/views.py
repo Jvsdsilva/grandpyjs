@@ -29,10 +29,6 @@ def add_headers(response):
 @app.route('/get_word', methods=['GET', 'POST'])
 def get_prediction():
     word = request.args.get('word')
-    if (word.status == "ZERO_RESULTS"):
-        # array empty or does not exist
-        window.alert("Any results!! Try again.")
-
     # get coordinates
     parser = parse.get_coordinates(word)
     # get history
