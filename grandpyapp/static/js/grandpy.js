@@ -59,21 +59,17 @@ window.addEventListener("load", function () {
                   map:initMap()
               });
             },
-            /*error: function(xhr) {
+            error: function(xhr) {
+              $("#message").html(xhr.html);
               console.log("erreur coordinates"+ xhr) // error coordinate
-            },*/
+            },
           }); 
         },
-        /*error: function(err) {
+        error: function(err) {
+          $("#message").html(err.html);
           console.log("erreur sommaire"+err) // error summary
-        }*/
+        }
       });
-   /* }*/
-    /*catch(e){
-      console.log("erreur sommaire"+e) // error summary
-      alert("Any results!! Try again, please.");
-    }*/
-    /*alert("Any results!! Try again, please.");*/
     e.preventDefault(); // Cancel sending data
     return false;
     }); 
