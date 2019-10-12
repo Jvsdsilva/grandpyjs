@@ -8,7 +8,7 @@ function ajaxGet(url, callback) {
             callback(req.responseText);
         } 
         else {
-            if(req.status === 500){
+            if(req.status == 500){
                 alert("Any results!! Try again, please.");
                 alert("")
             }
