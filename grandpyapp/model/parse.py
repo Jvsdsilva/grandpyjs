@@ -50,8 +50,7 @@ def get_coordinates(word):
         location = json.dumps(latlng)
         # return location
         return(location)
-        
-    if js['status'] == 500:
+    else:
         message = "Any results!! Try again, please."
         return(message)
 

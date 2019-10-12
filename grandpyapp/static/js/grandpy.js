@@ -61,13 +61,11 @@ window.addEventListener("load", function () {
             },
             error: function(xhr) {
               console.log("erreur coordinates"+ xhr) // error coordinate
-              $("#message").html(xhr.html);
             },
           }); 
         },
         error: function(err) {
           console.log("erreur sommaire"+err) // error summary
-          $("#message").html(err.html);
         }
       });
     e.preventDefault(); // Cancel sending data
