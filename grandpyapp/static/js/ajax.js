@@ -6,12 +6,13 @@ function ajaxGet(url, callback) {
     req.addEventListener("load", function () {
         if (req.status >= 200 && req.status < 400) {
             callback(req.responseText);
-        } 
+        }
+        else if(req.status == 500){
+            alert("Any results!! Try again, please.");
+            callback("");
+        }
+
         else {
-            if(req.status == 500){
-                alert("Any results!! Try again, please.");
-                alert("")
-            }
             console.error(req.status + " " + req.statusText + " " + url);
         }
     });
