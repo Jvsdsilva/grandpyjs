@@ -62,6 +62,7 @@ window.addEventListener("load", function () {
             error: function(xhr) {
               console.log("erreur coordinates"+ xhr) // error coordinate
               message = "Any results!! Try again, please."
+              response = message
               $("#message").html(message.html);
             },
           }); 
