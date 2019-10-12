@@ -27,10 +27,10 @@ def get_coordinates(word):
         # load json
         js = json.loads(data)
     except:
-        message = "Any results!! Try again, please."
+        location = "Any results!! Try again, please."
         print('==== Failure URL ====')
         # js = None
-        return(message)
+        return(location)
 
     if not js:
         if 'status' not in js:
@@ -50,9 +50,7 @@ def get_coordinates(word):
         location = json.dumps(latlng)
         # return location
         return(location)
-    else:
-        message = "Any results!! Try again, please."
-        return(message)
+    
 
 def message(coordinates):
     data = json.loads(coordinates)
