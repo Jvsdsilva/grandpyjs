@@ -60,26 +60,14 @@ window.addEventListener("load", function () {
               });
             },
             error: function(xhr) {
-              if (xhr) {
-                console.log("if"+xhr)
-                window.alert("Any results!! Try again.");
-              }
-              /*alert = function(){};*/
               console.log("erreur coordinates"+ xhr) // error coordinate
             },
           }); 
         },
         error: function(err) {
-          // array empty or does not exist
-          if (err) {
-            console.log("if"+err)
-            /*window.alert("Any results!! Try again.");*/
-          }
-          /*alert = function(){};*/
-          console.log(err) // error summary
+          console.log("erreur sommaire"+err) // error summary
         }
       });
-      alert = function(){};
     e.preventDefault(); // Cancel sending data
     }); 
   });

@@ -27,8 +27,10 @@ def get_coordinates(word):
         js = json.loads(data)
         
     except:
+        message = "Any results!! Try again, please."
         print('==== Failure URL ====')
         js = None
+        return(message)
 
     if not js:
         if 'status' not in js:
