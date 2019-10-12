@@ -28,6 +28,10 @@ window.addEventListener("load", function () {
             type: "GET",
             data: {word: word},
             success: function(response) {
+              if (response.status === "ZERO_RESULTS"){
+                // array empty or does not exist
+                window.alert("Any results!! Try again."); 
+              }
               // Loop through the results array and place a marker for each
               // set of coordinates.
               for (var x in response){
@@ -65,10 +69,6 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-          if (response.status === "ZERO_RESULTS"){
-            // array empty or does not exist
-            window.alert("Any results!! Try again."); 
-          }
           console.log("erreur summary"+err) // error summary
         }
       });
