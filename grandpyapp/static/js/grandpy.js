@@ -60,7 +60,6 @@ window.addEventListener("load", function () {
               });
             },
             error: function(xhr) {
-              console.log(xhr)
               /*if (xhr.status === "ZERO_RESULTS"){
                 // array empty or does not exist
                 window.alert("Any results!! Try again."); 
@@ -70,7 +69,6 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-          console.log(err)
          /* if (err.status === "ZERO_RESULTS"){
             // array empty or does not exist
             window.alert("Any results!! Try again."); 
