@@ -45,9 +45,7 @@ def get_coordinates():
     word = request.args.get('word')
     # get coordinates
     coordinates = parse.get_coordinates(word)
-    if methods['GET']==500:
-        message = "Any results!! Try again, please."
-        return jsonify({'html': message})
+
     # Return new coordinates to reload map view html
     return jsonify({'html': coordinates})
     
