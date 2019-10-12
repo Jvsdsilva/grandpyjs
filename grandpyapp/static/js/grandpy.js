@@ -69,7 +69,7 @@ window.addEventListener("load", function () {
           }); 
         },
         error: function(err) {
-          if (err.status === "object Object"){
+          if (err === "object Object"){
             // array empty or does not exist
             window.alert("Any results!! Try again."); 
           }
