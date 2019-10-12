@@ -70,9 +70,15 @@ window.addEventListener("load", function () {
         },
         error: function(err) {
           // array empty or does not exist
-
+          if (err) {
+            console.log("if"+err)
+            return(window.alert("Any results!! Try again."));
+          }
+          else{
+            console.log("else"+err)
+            err="";
+          }
           console.log(err) // error summary
-          return(window.alert("Any results!! Try again."));
         }
       });
     e.preventDefault(); // Cancel sending data
