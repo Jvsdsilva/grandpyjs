@@ -29,10 +29,9 @@ def get_coordinates(word):
         js = json.loads(data)
         
     except:
-        if js == None:
-            message = message()
-            print('==== Failure URL ====')
-            js = None
+            #message = message()
+        print('==== Failure URL ====')
+        js = None
 
     if not js:
         if 'status' not in js:
