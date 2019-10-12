@@ -67,19 +67,8 @@ window.addEventListener("load", function () {
         },
         error: function(err) {
           $("#message").html("Any results!! Try again, please.");
-          $.ajax({
-            url: "/get_coord",
-            type: "GET",
-            data: {word: word},
-            success: function(response) {
-              $("#message").html("");
-            },
-          
-          error: function(xhr) {
-            $("#message").html("");
-            console.log("erreur coordinates"+ xhr) // error coordinate
-          },
-        });
+          document.getElementById('googleMap').innerHTML = "";
+
           console.log("erreur sommaire"+err) // error summary
         }
       });
