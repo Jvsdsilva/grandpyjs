@@ -15,7 +15,6 @@ window.addEventListener("load", function () {
           e.preventDefault(); // Cancel sending data
           return false;
         }
-        /*try{*/
         $.ajax({
         url: "/get_word",
         type: "GET",
@@ -74,7 +73,9 @@ window.addEventListener("load", function () {
       console.log("erreur sommaire"+e) // error summary
       alert("Any results!! Try again, please.");
     }*/
+    alert("Any results!! Try again, please.");
     e.preventDefault(); // Cancel sending data
+    return false;
     }); 
   });
 });    
