@@ -68,8 +68,6 @@ window.addEventListener("load", function () {
         error: function(err) {
           $("#message").html("Any results!! Try again, please.");
           $("#url").html("");
-          
-
           console.log("erreur sommaire"+err) // error summary
         }
       });
