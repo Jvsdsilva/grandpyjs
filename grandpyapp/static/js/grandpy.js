@@ -62,13 +62,11 @@ window.addEventListener("load", function () {
             },
             error: function(xhr) {
               console.log("erreur coordinates"+ xhr) // error coordinate
-              alert("Any results!! Try again, please.");
             },
           }); 
         },
         error: function(err) {
           console.log("erreur sommaire"+err) // error summary
-          alert("Any results!! Try again, please.");
         }
       });
     }
